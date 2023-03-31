@@ -1,16 +1,10 @@
 #!/usr/bin/python3
-"""Fetches https://intranet.hbtn.io/status"""
+"""Python code that check intranet status"""
+
+
 import urllib.request
-
-
-def fetcher():
-    """fetcher"""
-    with urllib.request.urlopen("https://intranet.hbtn.io/status") as response:
-        html = response.read()
-        print("Body response:")
-        print("\t- type: {}".format(type(html)))
-        print("\t- content: {}".format(html))
-        print("\t- utf8 content: {}".format(html.decode("utf-8")))
-
-if __name__ == "__main__":
-    fetcher()
+with urllib.request.urlopen('https://intranet.hbtn.io/status') as response:
+    status = response.read()
+    decode_response = status.decode('utf-8')
+    print("Body response:\n\t- type: {}\n\t- content: {}\n\t- utf8 content: \
+{}".format(type(status), status, decode_response))
